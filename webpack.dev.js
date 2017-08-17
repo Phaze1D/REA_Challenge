@@ -7,4 +7,4 @@ common.devServer = {
   hot: true,
 }
 
-modules.exports = common
+module.exports = common

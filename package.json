@@ -4,7 +4,7 @@
   "description": "REA interview Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --hot --inline"
   },
   "author": "David Villarreal",
   "license": "ISC",
