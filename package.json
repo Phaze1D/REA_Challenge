@@ -4,6 +4,7 @@
   "description": "REA interview Challenge",
   "main": "index.js",
   "scripts": {
+    "test": "jest --watch",
     "start": "webpack-dev-server --hot --inline --config webpack.dev.js"
   },
   "author": "David Villarreal",
