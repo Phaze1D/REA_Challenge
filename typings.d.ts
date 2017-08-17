@@ -1,12 +1,11 @@
-/*
-  For simplicity I will create all the interfaces in one file.
-  If this was a huge project I would separate the interfaces into their own file
-*/
-
+declare module "*.json" {
+    const value: any;
+    export default value;
+}
 /**
 * Represents a single property
 */
-export interface IProperty {
+interface IProperty {
   id: string
   price: string
   mainImage: URL
@@ -16,7 +15,7 @@ export interface IProperty {
 /**
 * Represents a single agency
 */
-export interface IAgency {
+interface IAgency {
   logo: URL
   brandingColors: IBrandingColors
 }
@@ -24,7 +23,7 @@ export interface IAgency {
 /**
 * Represents the branding colors
 */
-export interface IBrandingColors {
+interface IBrandingColors {
   primary: string
   secondary?: string
 }
