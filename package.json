@@ -4,7 +4,7 @@
   "description": "REA interview Challenge",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline"
+    "start": "webpack-dev-server --hot --inline --config webpack.dev.js"
   },
   "author": "David Villarreal",
   "license": "ISC",
