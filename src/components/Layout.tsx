@@ -10,7 +10,7 @@ import {
 } from 'types'
 
 
-interface ILayoutProps {
+interface Props {
     results: Set<string>
     saved: Set<string>
     properties: Map<string, IPropertyMap>
@@ -20,7 +20,7 @@ interface ILayoutProps {
 }
 
 
-class Layout extends React.Component<ILayoutProps> {
+class Layout extends React.Component<Props> {
 
   componentDidMount(){
     this.props.loadData()
