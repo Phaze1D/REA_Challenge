@@ -1,6 +1,6 @@
-declare module "*.json" {
-    const value: any;
-    export default value;
+declare module "*data.json" {
+    export let results: IProperty[]
+    export let saved: IProperty[]
 }
 /**
 * Represents a single property
