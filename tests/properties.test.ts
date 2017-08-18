@@ -15,29 +15,28 @@ describe('Testing the redux actions', () => {
 
   test('Add Property', () => {
     state = reducer(state, addProperty('1'))
+    console.log(state)
     expect(state.get('results').size).toBe(3)
     expect(state.get('saved').size).toBe(2)
     expect(state.get('saved').has('1')).toBe(true)
   })
 
   test('Remove Property', () => {
-    state = reducer(state, removeProperty('1'))
+    state = reducer(state, removeProperty('4'))
     expect(state.get('results').size).toBe(3)
     expect(state.get('saved').size).toBe(1)
-    expect(state.get('saved').has('1')).toBe(false)
+    expect(state.get('saved').has('4')).toBe(false)
   })
 
   test('Add Non Existing Property', () => {
     state = reducer(state, addProperty('900'))
     expect(state.get('results').size).toBe(3)
     expect(state.get('saved').size).toBe(1)
-    expect(state.get('error')).toBe('Property ID not found')
   })
 
   test('Remove Non Existing Property', () => {
     state = reducer(state, removeProperty('993'))
     expect(state.get('results').size).toBe(3)
     expect(state.get('saved').size).toBe(1)
-    expect(state.get('error')).toBe('Property ID not found')
   })
 })

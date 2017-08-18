@@ -19,7 +19,7 @@ export interface IAction {
 * If one of these variables changes then that changes needs to propagate
 * throughout the saved and results array. So to avoid having to update both
 * objects in the results array and saved array, I saved all the properties in
-* a map and I only have to change one object.
+* a map<id, property> and I only have to change one object.
 */
 export function loadData(): IAction {
   let data = getData()
@@ -51,7 +51,9 @@ export function loadData(): IAction {
 export function addProperty(id: string): IAction {
   return {
     type: ADD_PROPERTY,
-    payload: {}
+    payload: {
+      id: id
+    }
   }
 }
 
@@ -59,6 +61,8 @@ export function addProperty(id: string): IAction {
 export function removeProperty(id: string): IAction {
   return {
     type: REMOVE_PROPERTY,
-    payload: {}
+    payload: {
+      id: id
+    }
   }
 }
