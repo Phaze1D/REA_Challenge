@@ -6,6 +6,7 @@ import { createStore } from 'redux'
 import { reducer } from 'reducer'
 import { INITIAL_STATE } from 'types'
 import 'styles'
+import '../index.html'
 
 
 
