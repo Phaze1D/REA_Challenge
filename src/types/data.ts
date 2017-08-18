@@ -3,7 +3,7 @@ import { Map } from 'immutable'
 export interface IProperty {
   id: string
   price: string
-  mainImage: URL
+  mainImage: string
   agency: IAgency
 }
 
@@ -12,7 +12,7 @@ export interface IPropertyMap extends IProperty, Map<string, any>{
 }
 
 export interface IAgency {
-  logo: URL
+  logo: string
   brandingColors: IBrandingColors
 }
 
