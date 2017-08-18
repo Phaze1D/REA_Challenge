@@ -1,10 +1,14 @@
 import { Map, Set } from 'immutable'
-import { IProperty } from './data'
+import { IPropertyMap } from './data'
 
 export interface IState extends Map<string, any> {
-  results?: Set<string>
-  saved?: Set<string>
-  properties?: Map<string, IProperty>
+  results: Set<string>
+  saved: Set<string>
+  properties: Map<string, IPropertyMap>
 }
 
-export const INITIAL_STATE = Map<string, any>()
+export const INITIAL_STATE: IState = <IState>Map<string, any>({
+  results: Set<string>(),
+  saved: Set<string>(),
+  properties: Map<string, IPropertyMap>()
+})
