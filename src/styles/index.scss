@@ -1,0 +1,103 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  width: 100vw;
+}
+
+#rheader {
+  grid-area: rheader
+}
+
+#sheader {
+  grid-area: sheader
+}
+
+#rgrid {
+  grid-area: rgrid
+}
+#sgrid {
+  grid-area: sgrid
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px auto 100px auto;
+  grid-template-areas: "rheader"
+                       "rgrid"
+                       "sheader"
+                       "sgrid"
+}
+
+
+.property-card {
+  position: relative;
+  border-radius: 2px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+
+  .lower {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 5px;
+  }
+
+}
+
+.glass {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+
+  &.hover {
+    filter: blur(4px);
+    background-color: rgba(255,255,255,0.6);
+  }
+}
+
+.icon {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 40px;
+  display: none;
+
+  &.hover {
+    display: flex;
+  }
+}
+
+.main-img {
+  max-width: 100%;
+}
+
+.grid {
+  padding: 10px;
+  border-right: 1px solid grey;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-auto-rows: min-content;
+  grid-gap: 10px 10px;
+  grid-row: 2;
+  min-height: 100vh;
+}
+
+
+@media (min-width: 642px){
+  main {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 100px auto;
+    grid-template-areas: "rheader sheader"
+                         "rgrid sgrid"
+  }
+}
