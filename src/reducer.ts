@@ -3,13 +3,13 @@ import { IAction, LOAD_DATA ,ADD_PROPERTY, REMOVE_PROPERTY } from 'actions'
 
 
 
-export interface IState extends Map<string, Set<string> | Map<string, IProperty>> {
+export interface IState extends Map<string, any> {
   results?: Set<string>
   saved?: Set<string>
   properties?: Map<string, IProperty>
 }
 
-export const INITIAL_STATE = Map<string, Set<string> | Map<string, IProperty>>()
+export const INITIAL_STATE = Map<string, any>()
 
 
 /**
