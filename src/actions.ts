@@ -12,7 +12,7 @@ export interface IAction {
 
 
 /*
-* Why split the data into array of ids for results and saved?
+* Why split the data into set of ids for results and saved?
 *
 * I am assuming that if a property is in both results and saved array then
 * it shares the same variables e.g price, id, agency...
@@ -20,6 +20,12 @@ export interface IAction {
 * throughout the saved and results array. So to avoid having to update both
 * objects in the results array and saved array, I saved all the properties in
 * a map<id, property> and I only have to change one object.
+*/
+
+/**
+* Redux Action Creator
+* Handles the loading of data and parsing
+* @returns {IAction}
 */
 export function loadData(): IAction {
   let data = getData()
@@ -47,7 +53,11 @@ export function loadData(): IAction {
   }
 }
 
-
+/**
+* Redux Action Creator
+* @param {string} id - the property id to add
+* @returns {IAction}
+*/
 export function addProperty(id: string): IAction {
   return {
     type: ADD_PROPERTY,
@@ -57,7 +67,11 @@ export function addProperty(id: string): IAction {
   }
 }
 
-
+/**
+* Redux Action Creator
+* @param {string} id - the property id to remove
+* @returns {IAction}
+*/
 export function removeProperty(id: string): IAction {
   return {
     type: REMOVE_PROPERTY,
