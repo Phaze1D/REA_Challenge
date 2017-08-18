@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watch",
-    "start": "webpack-dev-server --hot --inline --config webpack.dev.js"
+    "start": "webpack-dev-server --hot --inline --config webpack.dev.js",
+    "prebuild": "rimraf build",
+    "build": "cross-env NODE_ENV=production webpack -p --config webpack.pro.js"
   },
   "author": "David Villarreal",
   "license": "ISC",
