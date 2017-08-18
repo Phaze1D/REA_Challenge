@@ -1,15 +1,10 @@
 import { Map, Set, fromJS } from 'immutable'
-import { IAction, LOAD_DATA ,ADD_PROPERTY, REMOVE_PROPERTY } from 'actions'
+import {
+  IAction, IState ,
+  LOAD_DATA ,ADD_PROPERTY, REMOVE_PROPERTY,
+  INITIAL_STATE
+} from 'types'
 
-
-
-export interface IState extends Map<string, any> {
-  results?: Set<string>
-  saved?: Set<string>
-  properties?: Map<string, IProperty>
-}
-
-export const INITIAL_STATE = Map<string, any>()
 
 
 /**

@@ -1,6 +1,7 @@
 import { Map, Set } from 'immutable'
-import { reducer, IState } from 'reducer'
+import { reducer } from 'reducer'
 import { addProperty, removeProperty, loadData } from 'actions'
+import { IState } from 'types'
 
 
 

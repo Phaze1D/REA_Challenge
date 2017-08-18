@@ -1,15 +1,10 @@
 import { getData } from 'api'
 import { Set, Map, fromJS } from 'immutable'
-
-export const LOAD_DATA = 'LOAD_DATA'
-export const ADD_PROPERTY = 'ADD_PROPERTY'
-export const REMOVE_PROPERTY = 'REMOVE_PROPERTY'
-
-export interface IAction {
-  type: string
-  payload: any
-}
-
+import {
+  IAction, IProperty,
+  LOAD_DATA, ADD_PROPERTY, REMOVE_PROPERTY,
+  ILoadData, IAddProperty, IRemoveProperty
+} from 'types'
 
 /*
 * Why split the data into set of ids for results and saved?
@@ -27,7 +22,8 @@ export interface IAction {
 * Handles the loading of data and parsing
 * @returns {IAction}
 */
-export function loadData(): IAction {
+export const loadData: ILoadData =
+function(): IAction {
   let data = getData()
   let results = Set()
   let saved = Set()
@@ -58,7 +54,8 @@ export function loadData(): IAction {
 * @param {string} id - the property id to add
 * @returns {IAction}
 */
-export function addProperty(id: string): IAction {
+export const addProperty: IAddProperty =
+function(id: string): IAction {
   return {
     type: ADD_PROPERTY,
     payload: {
@@ -72,7 +69,8 @@ export function addProperty(id: string): IAction {
 * @param {string} id - the property id to remove
 * @returns {IAction}
 */
-export function removeProperty(id: string): IAction {
+export const removeProperty: IRemoveProperty =
+function(id: string): IAction {
   return {
     type: REMOVE_PROPERTY,
     payload: {
