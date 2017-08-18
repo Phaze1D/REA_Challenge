@@ -15,7 +15,6 @@ describe('Testing the redux actions', () => {
 
   test('Add Property', () => {
     state = reducer(state, addProperty('1'))
-    console.log(state)
     expect(state.get('results').size).toBe(3)
     expect(state.get('saved').size).toBe(2)
     expect(state.get('saved').has('1')).toBe(true)
