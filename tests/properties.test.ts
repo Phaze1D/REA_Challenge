@@ -38,4 +38,19 @@ describe('Testing the redux actions', () => {
     expect(state.get('results').size).toBe(3)
     expect(state.get('saved').size).toBe(1)
   })
+
+  test('Adding duplicate', () => {
+    state = reducer(state, addProperty('4'))
+    state = reducer(state, addProperty('4'))
+    state = reducer(state, addProperty('4'))
+    state = reducer(state, addProperty('4'))
+    expect(state.get('results').size).toBe(3)
+    expect(state.get('saved').size).toBe(2)
+  })
+
+  test('Remove property that has not been added', () => {
+    state = reducer(state, removeProperty('2'))
+    expect(state.get('results').size).toBe(3)
+    expect(state.get('saved').size).toBe(2)
+  })
 })
