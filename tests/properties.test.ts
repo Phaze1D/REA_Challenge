@@ -5,8 +5,8 @@ import { addProperty, removeProperty, loadData } from 'actions'
 
 
 describe('Testing the redux actions', () => {
-  let state: IState = null
-  
+  let state: IState = undefined
+
   test('Load the initial state', () => {
     state = reducer(state, loadData())
     expect(state.get('results').size).toBe(3)
