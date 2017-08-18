@@ -1,6 +1,5 @@
-/**
-* Represents a single property
-*/
+import { Map } from 'immutable'
+
 export interface IProperty {
   id: string
   price: string
@@ -8,18 +7,25 @@ export interface IProperty {
   agency: IAgency
 }
 
-/**
-* Represents a single agency
-*/
+export interface IPropertyMap extends IProperty, Map<string, any>{
+  agency: IAgencyMap
+}
+
 export interface IAgency {
   logo: URL
   brandingColors: IBrandingColors
 }
 
-/**
-* Represents the branding colors
-*/
+export interface IAgencyMap extends IAgency, Map<string, any> {
+  brandingColors: IBrandingColorsMap
+}
+
+
 export interface IBrandingColors {
   primary: string
   secondary?: string
+}
+
+export interface IBrandingColorsMap extends IBrandingColors, Map<string, string> {
+
 }

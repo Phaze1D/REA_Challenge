@@ -1,7 +1,7 @@
 import { getData } from 'api'
 import { Set, Map, fromJS } from 'immutable'
 import {
-  IAction, IProperty,
+  IAction, IPropertyMap,
   LOAD_DATA, ADD_PROPERTY, REMOVE_PROPERTY,
   ILoadData, IAddProperty, IRemoveProperty
 } from 'types'
@@ -27,7 +27,7 @@ function(): IAction {
   let data = getData()
   let results = Set()
   let saved = Set()
-  let properties = Map<string, IProperty>()
+  let properties = Map<string, IPropertyMap>()
 
   data.results.forEach(prop => {
     results = results.add(prop.id)
