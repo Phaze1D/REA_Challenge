@@ -1,6 +1,5 @@
 import * as React from 'react'
-import ResultItem from 'components/ResultItem'
-import SavedItem from 'components/SavedItem'
+import PropertyCard from 'components/PropertyCard'
 import { connect } from 'react-redux'
 import { Map, Set } from 'immutable'
 import { bindActionCreators, Dispatch } from 'redux'
@@ -31,23 +30,37 @@ class Layout extends React.Component<ILayoutProps> {
     const {
       results,
       saved,
-      properties
+      properties,
+      addProperty,
+      removeProperty
     } = this.props
 
     const resultsList = results.map(id =>
-      <ResultItem key={id} property={properties.get(id).toJS()}/>
+      <PropertyCard
+      key={id}
+      id={id}
+      saved={false}
+      property={properties.get(id).toJS()}
+      onRequestClick={addProperty}/>
     )
 
     const savedList = saved.map(id =>
-      <SavedItem key={id} property={properties.get(id).toJS()}/>
+      <PropertyCard
+      key={id}
+      id={id}
+      saved={true}
+      property={properties.get(id).toJS()}
+      onRequestClick={removeProperty}/>
     )
 
     return (
       <main>
-        <section>
+        <h1 id='rheader'>Results</h1>
+        <section id='rgrid' className='grid'>
           {resultsList}
         </section>
-        <section>
+        <h1 id='sheader'>Saved</h1>
+        <section id='sgrid' className='grid'>
           {savedList}
         </section>
       </main>
