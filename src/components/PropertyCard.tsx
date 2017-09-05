@@ -47,7 +47,7 @@ class PropertyCard extends React.Component<Props, State> {
     } = this.props
 
     console.log(property);
-
+    
 
     let iconClasses = classnames('icon', {'hover': this.state.hover})
     let glassClasses = classnames('glass', {'hover': this.state.hover})
@@ -78,7 +78,7 @@ class PropertyCard extends React.Component<Props, State> {
             Disable
           </button>
 
-        {property.disable &&
+        {property.disable && 
           <div>
             TESTING
           </div>
