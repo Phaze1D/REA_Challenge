@@ -23,6 +23,10 @@ export function reducer(state: IState=INITIAL_STATE, action: IAction): IState {
   if(action.type === REMOVE_PROPERTY){
     return removePropertyHandler(state, action)
   }
+
+  if(action.type === "DISABLE_PROPERTY"){
+    return disablePropertyHandler(state, action)
+  }
   return state
 }
 
@@ -60,6 +64,14 @@ function addPropertyHandler(oldState, action) {
 function removePropertyHandler(oldState, action){
   if(oldState.hasIn(['properties', action.payload.id])){
     return oldState.update('saved', set => set.delete(action.payload.id))
+  }
+  return oldState
+}
+
+
+function disablePropertyHandler(oldState, action){
+  if(oldState.hasIn(['properties', action.payload.id])){
+    return oldState.setIn(['properties', action.payload.id, 'disable'], true)
   }
   return oldState
 }

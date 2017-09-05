@@ -2,8 +2,8 @@ import { getData } from 'api'
 import { Set, Map, fromJS } from 'immutable'
 import {
   IAction, IPropertyMap,
-  LOAD_DATA, ADD_PROPERTY, REMOVE_PROPERTY,
-  ILoadData, IAddProperty, IRemoveProperty
+  LOAD_DATA, ADD_PROPERTY, REMOVE_PROPERTY, DISABLE_PROPERTY,
+  ILoadData, IAddProperty, IRemoveProperty, IDisableProperty
 } from 'types'
 
 /*
@@ -73,6 +73,17 @@ export const removeProperty: IRemoveProperty =
 function(id: string): IAction {
   return {
     type: REMOVE_PROPERTY,
+    payload: {
+      id: id
+    }
+  }
+}
+
+
+export const disableProperty: IDisableProperty =
+function(id: string): IAction {
+  return {
+    type: DISABLE_PROPERTY,
     payload: {
       id: id
     }

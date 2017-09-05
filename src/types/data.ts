@@ -5,6 +5,7 @@ export interface IProperty {
   price: string
   mainImage: string
   agency: IAgency
+  disable?: boolean
 }
 
 export interface IPropertyMap extends IProperty, Map<string, any>{

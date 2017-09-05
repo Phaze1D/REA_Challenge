@@ -8,6 +8,7 @@ interface Props {
   id: string
   saved: boolean
   onRequestClick: (event) => void
+  onRequestDisable?: (event) => void
 }
 
 interface State {
@@ -22,7 +23,9 @@ class PropertyCard extends React.Component<Props, State> {
   }
 
   handleClick = (event) => {
-    this.props.onRequestClick(this.props.id)
+    if(this.props.property.disable){
+      this.props.onRequestClick(this.props.id)
+    }
   }
 
   handleOnMouseEnter = (event) => {
@@ -33,11 +36,18 @@ class PropertyCard extends React.Component<Props, State> {
     this.setState({hover: false})
   }
 
+  handleDisable = (event) => {
+    this.props.onRequestDisable(this.props.id)
+  }
+
   render(){
     const {
       property,
       saved
     } = this.props
+
+    console.log(property);
+
 
     let iconClasses = classnames('icon', {'hover': this.state.hover})
     let glassClasses = classnames('glass', {'hover': this.state.hover})
@@ -63,6 +73,16 @@ class PropertyCard extends React.Component<Props, State> {
           <p className='lower'>
             <span>Price: </span> {property.price}
           </p>
+
+          <button onClick={this.handleDisable}>
+            Disable
+          </button>
+
+        {property.disable &&
+          <div>
+            TESTING
+          </div>
+        }
         </div>
 
       </article>

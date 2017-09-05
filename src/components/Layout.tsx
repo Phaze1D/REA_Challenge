@@ -3,10 +3,10 @@ import PropertyCard from 'components/PropertyCard'
 import { connect } from 'react-redux'
 import { Map, Set } from 'immutable'
 import { bindActionCreators, Dispatch } from 'redux'
-import { loadData, addProperty, removeProperty } from 'actions'
+import { loadData, addProperty, removeProperty, disableProperty } from 'actions'
 import {
   IState, IPropertyMap,
-  ILoadData, IAddProperty, IRemoveProperty
+  ILoadData, IAddProperty, IRemoveProperty, IDisableProperty
 } from 'types'
 
 
@@ -17,6 +17,7 @@ interface Props {
     loadData: ILoadData
     addProperty: IAddProperty
     removeProperty: IRemoveProperty
+    disableProperty: IDisableProperty
 }
 
 
@@ -32,7 +33,8 @@ class Layout extends React.Component<Props> {
       saved,
       properties,
       addProperty,
-      removeProperty
+      removeProperty,
+      disableProperty
     } = this.props
 
     const resultsList = results.map(id =>
@@ -41,7 +43,8 @@ class Layout extends React.Component<Props> {
       id={id}
       saved={false}
       property={properties.get(id).toJS()}
-      onRequestClick={addProperty}/>
+      onRequestClick={addProperty}
+      onRequestDisable={disableProperty}/>
     )
 
     const savedList = saved.map(id =>
@@ -78,7 +81,8 @@ const mapStateToProps = (store: IState) => ({
 const mapDispatchToProps = (dispatch: Dispatch<IState>) => bindActionCreators({
   loadData: loadData,
   addProperty: addProperty,
-  removeProperty: removeProperty
+  removeProperty: removeProperty,
+  disableProperty: disableProperty
 }, dispatch)
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout)
